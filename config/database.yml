@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: 123456
+  host: localhost
+
+development:
+  <<: *default
+  database: estacionamientoapp
+
+
+test:
+  <<: *default
+  database: prueba_test
+
+
+production:
+  <<: *default
+  database: prueba_production
+  username: root
+  password:
