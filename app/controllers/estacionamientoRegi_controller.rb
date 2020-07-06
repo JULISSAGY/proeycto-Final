@@ -1,6 +1,6 @@
-require File.join(Rails.root, "app", "models", "Producto.rb")
+require File.join(Rails.root, "app", "models", "Estacionamiento.rb")
 
-class ProductosController < ApplicationController
+class EstacionamientoController < ApplicationController
   def buscar
   end 
   
@@ -25,7 +25,7 @@ class ProductosController < ApplicationController
       
       
       ######### 3 ############
-      @productos = Producto.find_by_sql("select * from estacionamiento where nombre like '%"+@txt_nombre_producto+"%'")
+      @productos = Estacionamiento.find_by_sql("select * from estacionamiento where nombre like '%"+@txt_nombre_producto+"%'")
       #@productos = Producto.where(['nombre LIKE ?', "%#{@txt_nombre_producto}%"])
       if @productos.nil?
         Rails.logger.debug("--------------> esta vacio!... ")
@@ -50,7 +50,7 @@ class ProductosController < ApplicationController
     Rails.logger.debug("--------------> " + @txt_descripcion_producto)
     Rails.logger.debug("--------------> " + @num_precio_producto)
 
-    prod =  Producto.new(:nombre => @txt_nombre_producto, :descripcion => @txt_descripcion_producto, :precio => @num_precio_producto)
+    prod =  Estacionamiento.new(:nombre => @txt_nombre_producto, :descripcion => @txt_descripcion_producto, :precio => @num_precio_producto)
     prod.save
     
 
